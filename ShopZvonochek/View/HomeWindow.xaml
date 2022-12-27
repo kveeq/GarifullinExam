@@ -1,0 +1,90 @@
+﻿<Window x:Class="ShopZvonochek.View.HomeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopZvonochek.View"
+        mc:Ignorable="d"
+        Title="HomeWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button
+            x:Name="QuitBtn"
+            Background="AntiqueWhite" 
+            Margin="10, 10" 
+            Width="50" 
+            Height="50"
+            Click="QuitBtn_Click"
+            Content="Выход"/>
+
+        <StackPanel Grid.Row="1">
+            <Button 
+                Width="70"
+                Height="40"
+                Margin="0,0,0,10"
+                Background="AntiqueWhite"
+                x:Name="AddClientBtn" 
+                Click="AddClientBtn_Click">
+                <TextBlock
+                    TextWrapping="WrapWithOverflow"
+                    Text="Добавить клиента"
+                    TextAlignment="Center"/>
+            </Button>  
+            <Button 
+                Width="70"
+                Height="40"
+                Margin="0,0,0,10"
+                Background="AntiqueWhite"
+                x:Name="CreateAktBtn" 
+                Click="CreateAktBtn_Click">
+                <TextBlock
+                    TextWrapping="WrapWithOverflow"
+                    Text="Сделать Акт"
+                    TextAlignment="Center"/>
+            </Button>
+            <Button 
+                Width="70"
+                Height="40"
+                Margin="0,0,0,10"
+                Background="AntiqueWhite"
+                x:Name="BuyCrashMaterialsBtn" 
+                Click="BuyCrashMaterialsBtn_Click">
+                <TextBlock
+                    TextWrapping="WrapWithOverflow"
+                    Text="Закупка материалов"
+                    TextAlignment="Center"/>
+            </Button>
+        </StackPanel>
+
+        <ListView Grid.Row="1" Grid.Column="1" Margin="20,10" x:Name="PhoneLstView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Имя телефона" Width="300" DisplayMemberBinding="{Binding Name}">
+
+                    </GridViewColumn>
+                    <GridViewColumn Header="Тип телефона" Width="100" DisplayMemberBinding="{Binding PhoneType.Name}">
+
+                    </GridViewColumn>
+                    <GridViewColumn Header="Цена телефона" Width="100" DisplayMemberBinding="{Binding PhonePrice}">
+
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" Header="Покупка">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="BuyBtn" Click="BuyBtn_Click" Content="Купить" CommandParameter="{Binding Id}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

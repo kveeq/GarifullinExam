@@ -1,0 +1,20 @@
+﻿<Window x:Class="ShopZvonochek.View.AddClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShopZvonochek.View"
+        mc:Ignorable="d"
+        Title="AddClientWindow" Height="250" Width="400">
+    <Grid>
+        <StackPanel Margin="0,0,0,30">
+            <Label Content="ФИО"/>
+            <TextBox x:Name="Nametxt" Height="30" ></TextBox>
+        </StackPanel>
+        <StackPanel Margin="0,30,0,0">
+            <Label Content="Номер телефона"/>
+            <TextBox x:Name="PhoneNumber" Height="30" ></TextBox>
+        </StackPanel>
+        <Button VerticalAlignment="Center" Content="Добавить" x:Name="AddClientBtn" Click="AddClientBtn_Click" />
+    </Grid>
+</Window>
